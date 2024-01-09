@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="Css/Generador.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="container-fluid p-4">
+            <div class="row">
+                <div class="col-md-3">
+                    <form class="shadow-lg p-3 mb-5 bg-formulario rounded">
+                        <h4>Ingrese su Información</h4>
+                        <hr>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre"
+                                oninput="generarInformacion()">
+                            <label for="floatingInput">Nombre</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido"
+                                oninput="generarInformacion()">
+                            <label for="floatingPassword">Apellido</label>
+                        </div>
+
+                        <!-- Change the ID of the email input field to 'correo' -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo"
+                                oninput="generarInformacion()">
+                            <label for="correo">Correo</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="sucursal" name="sucursal" required
+                                oninput="generarInformacion()">
+                                <option value="" disabled selected>Selecciona una sucursal</option>
+                                <option value="SanSalvador">San Salvador</option>
+                                <option value="SantaAna">Santa Ana</option>
+                                <option value="Soya">Soyapango</option>
+                                <option value="Ahucha">Ahuchapán</option>
+                                <option value="Sonso">Sonsonate</option>
+                                <option value="LaLibertad">La Libertad</option>
+                            </select>
+                            <label for="sucursal">Sucursal</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Teléfono"
+                                oninput="generarInformacion()">
+
+                            <label for="telefono">Teléfono</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="area" name="area" required oninput="generarInformacion()">
+                                <option value="" disabled selected>Selecciona un área</option>
+                                <option value="iNFOR">Informatica</option>
+                                <option value="Area2">RRHH</option>
+                                <!-- Agrega más opciones según sea necesario -->
+                            </select>
+                            <label for="area">Área</label>
+                        </div>
+
+                        <div class="form">
+                            <select class="form-select" id="selectFondo" onchange="cambiarFondo()">
+                                <option value="img/fondo2.png">Fondo Logo Redondo</option>
+                                <option value="img/IDEA2.png">Fondo Logo Cuadrado</option>
+                                <option value="img/fondo3.png">Fondo Casita</option>
+
+                            </select>
+
+
+                        </div>
+
+
+                        <div class="d-grid mt-3">
+                           
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold mb-2" type="button"
+                                onclick="generarImagenFirma()">Generar Firma</button>
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-md-9">
+                    <h4 class="mb-3">VISTA PREVIA:</h4>
+                    <hr>
+                    <div class="container" id="firma-generada">
+
+                        <!-- TODO: AQUI SE CAMBIARA EL DISEÑO DE LA FIRMA DE DONDE SE PONE LA INFORMACION DE LA IMAGEN QUE SE GENERARA -->
+                        <img src="img/fondo2.png" alt="" srcset="" class="correo-img">
+
+                        <div class="container-info-empleado ">
+                            <h1 id="name" class="name">NOMBRE <b class="last-name">APELLIDO</b></h1>
+                            <h5 id="text-information-area"> Area | <b>Comercialización En Movimiento S.A de C.V</b></h5>
+
+
+                            <!-- TODO: Para informacion de empleado -->
+                            <ul class="pt-3">
+                                <li>
+                                    <i class="fas fa-envelope email-box p-2 m-2 "></i>
+                                    <span id="text-information-email" class="">CORREO</span>
+                                </li>
+
+                                <li><i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
+                                    <span id="text-information-sucursal" class="">SUCURSAL</span>
+                                </li>
+
+                                <li><i class="fa-solid fa-phone email-box m-2 p-2 "></i>
+                                    <span id="text-information-telefono" class="">TELEFONO</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <div class="container-fluid container-footer">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-4  border-top  text-light">
+            <p class="col-md-4 mb-0 text-light">© 2023 COMO, Inc</p>
+
+            <a href="/"
+                class=" text-light col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="img/SSlogo.png" alt="" srcset="" class="logo-footer">
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Desarrollado por: KLEM</a></li>
+
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <script src="GeneradorFirma.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/9ec536fb8b.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.correo-img {
+    width: 100%;
+}
+
+.correo-img-generada {
+    width: 1490px;
+}
+
+.container-info-empleado {
+    position: relative;
+    top: -310px;
+    /* Para mover el texto a la izquierda */
+    left: 45%;
+
+}
+
+.container-info-empleado-generado {
+    position: relative;
+    top: -350px;
+    /* Para mover el texto a la izquierda */
+    left: 45%;
+}
+
+/* COLOR DE TEXTO DE APELLIDO */
+.name {
+    font-size: 50px;
+    text-transform: uppercase;
+
+}
+
+.last-name {
+    color: #2b6b95 !important;
+    font-size: 50px;
+    text-transform: uppercase;
+
+}
+
+.text-information {
+    font-size: 19px;
+    color: rgb(0, 0, 0);
+}
+
+/*  FIN COLOR DE TEXTO DE APELLIDO */
+
+.email-box {
+    display: inline-block;
+    background-color: #11111f;
+    /* Color de fondo del cuadro azul */
+    color: #ffffff;
+    /* Color del texto dentro del cuadro azul */
+    padding: 5px 10px;
+    /* Espaciado interno del cuadro azul */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    /* width: 65px; */
+    width: 35px;
+
+    text-align: center;
+}
+
+/* ============== este seria para el que genera la imagen y como se generaria========== */
+
+.email-box-generador {
+    display: inline-block;
+    background-color: #11111f;
+    /* Color de fondo del cuadro azul */
+    color: #ffffff;
+    /* Color del texto dentro del cuadro azul */
+    padding: 5px 10px;
+    /* Espaciado interno del cuadro azul */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    /* width: 65px; */
+    width: 50px;
+
+    text-align: center;
+}
+
+.information-list {
+    font-size: 27px;
+}
+
+ul {
+    list-style-type: none;
+    /* Quitar los puntos de la lista */
+    padding: 0;
+    /* Eliminar el espacio interno predeterminado de la lista */
+    margin: 0;
+    /* Eliminar el margen predeterminado de la lista */
+}
+
+#firma-generada {
+    height: 368px;
+    padding: 0px;
+
+}
+
+/* FOOTER */
+.container-footer {
+    background-color: #061623;
+}
+
+.logo-footer {
+    width: 60px;
+}
