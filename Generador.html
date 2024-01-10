@@ -60,8 +60,8 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Teléfono"
-                                oninput="generarInformacion()">
+                            <input type="number" class="form-control" id="telefono" name="telefono"
+                                placeholder="Teléfono" oninput="generarInformacion()">
 
                             <label for="telefono">Teléfono</label>
                         </div>
@@ -82,9 +82,9 @@
 
                         <div class="form">
                             <select class="form-select" id="selectFondo" onchange="cambiarFondo()">
-                                <option value="img/fondo2.png">Fondo Logo Redondo</option>
-                                <option value="img/IDEA2.png">Fondo Logo Cuadrado</option>
-                                <option value="img/fondo3.png">Fondo Casita</option>
+                                <option value="img/Firma.png">Fondo Logo Redondo</option>
+                                <!-- <option value="img/IDEA2.png">Fondo Logo Cuadrado</option>
+                                <option value="img/fondo3.png">Fondo Casita</option> -->
 
                             </select>
 
@@ -93,7 +93,7 @@
 
 
                         <div class="d-grid mt-3">
-                           
+
                             <button class="btn btn-primary btn-login text-uppercase fw-bold mb-2" type="button"
                                 onclick="generarImagenFirma()">Generar Firma</button>
 
@@ -107,12 +107,12 @@
                     <div class="container" id="firma-generada">
 
                         <!-- TODO: AQUI SE CAMBIARA EL DISEÑO DE LA FIRMA DE DONDE SE PONE LA INFORMACION DE LA IMAGEN QUE SE GENERARA -->
-                        <img src="img/fondo2.png" alt="" srcset="" class="correo-img">
+                        <img src="img/Firma.png" alt="" srcset="" class="correo-img">
 
                         <div class="container-info-empleado ">
                             <h1 id="name" class="name">NOMBRE <b class="last-name">APELLIDO</b></h1>
-                            <h5 id="text-information-area"> Area | <b>Comercialización En Movimiento S.A de C.V</b></h5>
-
+                            <h5 id="text-information-area"> Area | <b>Comercialización En Movimiento S.A de C.V </b>
+                            </h5>
 
                             <!-- TODO: Para informacion de empleado -->
                             <ul class="pt-3">
@@ -130,7 +130,14 @@
                                 </li>
 
                             </ul>
+                           
+
+
                         </div>
+                        <div class="Qr_Ubicacion-Generada">
+                            <img src="img/Ubicaciones_QR/QR_Ahuchapan.png" alt="" id="Qr_Ubicacion_img">
+                       </div>
+
                     </div>
                 </div>
             </div>

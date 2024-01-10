@@ -3,11 +3,15 @@
     margin: 0px;
 }
 
+
+
 body {
     overflow-x: hidden;
 
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure full viewport height */
 }
 
 .correo-img {
@@ -22,7 +26,7 @@ body {
     position: relative;
     top: -310px;
     /* Para mover el texto a la izquierda */
-    left: 45%;
+    left: 36%;
 
 }
 
@@ -30,7 +34,7 @@ body {
     position: relative;
     top: -335px;
     /* Para mover el texto a la izquierda */
-    left: 45%;
+    left: 36%;
 }
 
 /* COLOR DE TEXTO DE APELLIDO */
@@ -41,7 +45,7 @@ body {
 }
 
 .last-name {
-    color: #2b6b95 !important;
+    color: #104c90 !important;
     font-size: 50px;
     text-transform: uppercase;
 
@@ -102,16 +106,62 @@ ul {
 }
 
 #firma-generada {
-    height: 368px;
-    padding: 0px;
+    height: 368px;  
+      padding: 0px;
 
 }
 
 /* FOOTER */
+
 .container-footer {
     background-color: #061623;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
+
 
 .logo-footer {
     width: 60px;
+}
+
+/* PARA UBICACION DEL QR */
+#Qr_Ubicacion_img {
+    width: 66px;
+   
+}
+
+.Qr_Ubicacion {
+    position: relative;
+    top: -150px;
+    /* PARA MOVER A LA IZQUIERDA */
+     left: 56%; 
+
+}
+.Qr_Ubicacion-Generada {
+    position: relative;
+    top: -490px;
+    /* PARA MOVER A LA IZQUIERDA */
+     left: 90.5%; 
+
+}
+
+#line-container {
+    width: fit-content;
+    /* Esto hace que el contenedor tenga el ancho justo necesario */
+}
+
+
+/* Agrega este estilo al final de tu archivo de estilo CSS */
+
+/* Estilo para la línea azul debajo del texto del área */
+#text-information-area:after {
+    content: "";
+    display: block;
+    width: 20%;
+    height: 2px;
+    background-color: #004b93;
+    margin-top: 5px;
+    /* Ajusta este valor según sea necesario */
 }
