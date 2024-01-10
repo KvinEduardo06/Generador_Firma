@@ -13,12 +13,12 @@ function generarInformacion() {
     // Obtener los valores en mayúsculas
     const nombre = nombreInput.value.toUpperCase();
     const apellido = apellidoInput.value.toUpperCase();
-    const correo = correoInput.value;
+    const usuarioCorreo = correoInput.value; // Obtener el valor del usuario (sin la extensión)
     const area = areaSelect.options[areaSelect.selectedIndex].text; // Obtener el texto seleccionado del área
     const telefono = telefonoInput.value;
     const sucursal = sucursalSelect.options[sucursalSelect.selectedIndex].text; // Obtener el texto seleccionado de la sucursal
 
-
+    const correo = `${usuarioCorreo}@como.com.sv`;
 
     // Actualiza la información del empleado en el documento
     document.getElementById('name').innerHTML = `${nombre} <b class="last-name">${apellido}</b>`;
@@ -68,16 +68,16 @@ function generarImagenFirma() {
     const sucursalSelect = document.getElementById('sucursal');
     const telefonoInput = document.getElementById('telefono');
     const areaSelect = document.getElementById('area');
-    
+
     const nombre = nombreInput.value.toUpperCase();
     const apellido = apellidoInput.value.toUpperCase();
     const correo = correoInput.value;
     const sucursalOption = sucursalSelect.options[sucursalSelect.selectedIndex];
     const telefono = telefonoInput.value;
     const areaOption = areaSelect.options[areaSelect.selectedIndex];
-    
+
     // Validar que todos los campos estén completos y con valores válidos
-    if (!nombre || !apellido || !correo || !sucursalOption.value || !areaOption.value || !telefono) {
+    if (!nombre || !apellido || !correo || !sucursalOption.value || !areaOption.value ) {
         // Mostrar un Sweet Alert indicando que los campos son obligatorios y deben tener valores válidos
         Swal.fire({
             icon: 'error',
@@ -140,7 +140,7 @@ function generarImagenFirma() {
         // Convertir el canvas a una imagen
         const imageDataURL = canvas.toDataURL();
         // Guardar la imagen o hacer lo que necesites
-        saveImage(imageDataURL, nombre, apellido, sucursal);
+        saveImage(imageDataURL, nombre, apellido, sucursalOption.text); // Utiliza sucursalOption.text aquí
 
         // Recargar la página después de un breve retraso (1000 milisegundos = 1 segundo)
         setTimeout(() => {
@@ -148,13 +148,13 @@ function generarImagenFirma() {
         }, 1000);
     });
 
-  // Limpiar los campos de entrada
-  nombreInput.value = '';
-  apellidoInput.value = '';
-  correoInput.value = '';
-  sucursalSelect.value = '';  // Modificado para limpiar el campo 'sucursal'
-  telefonoInput.value = '';
-  areaSelect.value = ''; 
+    // Limpiar los campos de entrada
+    nombreInput.value = '';
+    apellidoInput.value = '';
+    correoInput.value = '';
+    sucursalSelect.value = '';  // Modificado para limpiar el campo 'sucursal'
+    telefonoInput.value = '';
+    areaSelect.value = '';
 }
 
 
