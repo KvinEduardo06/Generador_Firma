@@ -14,13 +14,7 @@ body {
     /* Ensure full viewport height */
 }
 
-.correo-img {
-    width: 100%;
-}
 
-.correo-img-generada {
-    width: 1490px;
-}
 
 .container-info-empleado {
     position: relative;
@@ -105,11 +99,18 @@ ul {
     /* Eliminar el margen predeterminado de la lista */
 }
 
-#firma-generada {
-    height: 368px;  
-      padding: 0px;
-
+.correo-img {
+    height: 411px;
+    width: 1144px;
+    padding: 0px;
 }
+
+#firma-generada{
+    height: 411px;
+    width: 1144px;
+    padding: 0px;
+}
+
 
 /* FOOTER */
 
@@ -134,16 +135,14 @@ ul {
 
 .Qr_Ubicacion {
     position: relative;
-    top: -150px;
-    /* PARA MOVER A LA IZQUIERDA */
-     left: 56%; 
+    top: -549px;
+    left: 91.5%;
 
 }
 .Qr_Ubicacion-Generada {
     position: relative;
-    top: -490px;
-    /* PARA MOVER A LA IZQUIERDA */
-     left: 90.5%; 
+    top: -549px;
+    left: 91.5%;
 
 }
 
