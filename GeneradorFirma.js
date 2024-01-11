@@ -79,7 +79,7 @@ function generarImagenFirma() {
     // Genera la información primero
     generarInformacion();
     // Llama a cambiarFondo para actualizar la imagen si es necesario
-    cambiarFondo();
+    // cambiarFondo();
 
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
