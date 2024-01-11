@@ -136,6 +136,7 @@ ul {
 .Qr_Ubicacion {
     position: relative;
     top: -171px;
+    /* mover esto para mover el qr que se genera */
     left: 625px;
 }
 
