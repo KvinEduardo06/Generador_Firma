@@ -272,7 +272,7 @@ function generarImagenFirma() {
 
             <div class="container-info-empleado-generado">
                 <h1 id="name" class="name">${nombre} <b class="last-name">${apellido}</b></h1>
-                <h5 id="text-information-area"> Area | <b>Comercialización En Movimiento S.A de C.V </b></h5>
+                <h5 id="text-information-area" class="area-generador">${areaOption.text} | Comercialización En Movimiento S.A de C.V</h5>
 
                 <!-- Para información de empleado -->
                 <ul class="pt-3">
