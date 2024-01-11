@@ -129,7 +129,7 @@ ul {
 
 /* PARA UBICACION DEL QR */
 #Qr_Ubicacion_img {
-    width: 66px;
+    width: 91px;
    
 }
 
@@ -142,8 +142,7 @@ ul {
 .Qr_Ubicacion-Generada {
     position: relative;
     top: -549px;
-    left: 91.5%;
-
+    left: 90.5%;
 }
 
 #line-container {
