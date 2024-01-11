@@ -164,3 +164,8 @@ ul {
     margin-top: 5px;
     /* Ajusta este valor según sea necesario */
 }
+
+.sin-telefono {
+    background-color: white;
+    color: white;
+}
