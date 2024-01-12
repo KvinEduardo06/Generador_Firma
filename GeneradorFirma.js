@@ -91,10 +91,11 @@ function generarImagenFirma() {
 
     const nombre = nombreInput.value.toUpperCase();
     const apellido = apellidoInput.value.toUpperCase();
-    const correo = correoInput.value;
+    const usuarioCorreo = correoInput.value; // Obtener el valor del usuario (sin la extensión)
     const sucursalOption = sucursalSelect.options[sucursalSelect.selectedIndex];
     const telefono = telefonoInput.value;
     const areaOption = areaSelect.options[areaSelect.selectedIndex];
+    const correo = `${usuarioCorreo}@como.com.sv`;
 
     // Validar que todos los campos estén completos y con valores válidos
     if (!nombre || !apellido || !correo || !sucursalOption.value || !areaOption.value) {
