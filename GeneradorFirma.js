@@ -80,6 +80,7 @@ function generarImagenFirma() {
     generarInformacion();
     // Llama a cambiarFondo para actualizar la imagen si es necesario
     // cambiarFondo();
+    
 
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
@@ -234,3 +235,21 @@ function cambiarFondo() {
     imagen.src = selectedOption;
 }
 
+function mostrarMensajeCorreo() {
+    const correoInput = document.getElementById('correo');
+    const correoValue = correoInput.value.trim();
+
+    // Verificar si el correo tiene un formato válido (contiene '@')
+    if (!correoValue.includes('@')) {
+        // Utilizar un alert de Bootstrap para mostrar el mensaje
+        const alertContainer = document.getElementById('alert-container');
+        alertContainer.innerHTML = `
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Sugerencia: </strong>Por favor, ingrese solo el nombre de usuario en el correo.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        // Limpiar el valor del campo de correo
+        correoInput.value = '';
+    }
+}
