@@ -197,7 +197,7 @@ function generarImagenFirma() {
         // Recargar la página después de un breve retraso (1000 milisegundos = 1 segundo)
         setTimeout(() => {
             location.reload();
-        }, 1000);
+        }, 1500);
     });
 
     // Limpiar los campos de entrada
