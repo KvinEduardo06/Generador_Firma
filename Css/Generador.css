@@ -133,16 +133,16 @@ ul {
    
 }
 
+/* CON ESTO SE MOVERA EL QR LA POSICION */
 .Qr_Ubicacion {
     position: relative;
-    top: -171px;
-    /* mover esto para mover el qr que se genera */
+    top: -80px;
     left: 625px;
 }
 
 .Qr_Ubicacion-Generada {
     position: relative;
-    top: -549px;
+    top: -400px;
     left: 90.5%;
 }
 
