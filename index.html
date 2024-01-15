@@ -37,13 +37,16 @@
                                 oninput="generarInformacion()">
                             <label for="floatingInput">Apellido</label>
                         </div>
+                      <!-- mensaje para ingresar solo usuario -->
+                        <div id="mensaje-correo" class="mb-2"></div>
+                      <!-- fin mensaje para ingresar solo usuario -->
 
                         <div class="form-floating mb-3">
+
                             <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo"
                                 oninput="generarInformacion()" onclick="mostrarMensajeCorreo()">
                             <label for="correo">Correo</label>
                         </div>
-                        <div id="alert-container" class="position-absolute top-0 end-0 p-3"></div>
 
 
                         <div class="form-floating mb-3">
@@ -122,7 +125,7 @@
                     <div class="container" id="firma-generada">
 
                         <!-- TODO: AQUI SE CAMBIARA EL DISEÑO DE LA FIRMA DE DONDE SE PONE LA INFORMACION DE LA IMAGEN QUE SE GENERARA -->
-                        <img src="img/Firma.png" alt="" srcset="" class="correo-img">
+                        <img src="img/Firma.png" alt="" srcset="" class="correo-img animate__rollIn img-fluid">
 
                         <div class="container-info-empleado ">
 
@@ -168,9 +171,9 @@
     </main>
     <div class="container-fluid container-footer">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-4  border-top  text-light fixed">
-            <p class="col-md-4 mb-0 text-light">Comercialización En Movimiento S.A de C.V - © 2023 </p>
+            <p class="col-md-4 mb-0 text-light">Comercialización En Movimiento S.A de C.V - © 2024 </p>
 
-            <a   
+            <a
                 class=" text-light col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <img src="img/SSlogo.png" alt="" srcset="" class="logo-footer">
             </a>

@@ -169,3 +169,16 @@ ul {
     background-color: white;
     color: white;
 }
+@media (max-width: 767px) {
+    #firma-generada {
+      overflow-x: auto;
+      white-space: nowrap; /* Evita que el contenido se desborde a la siguiente línea */
+      width: 100%; /* Ajusta el ancho según sea necesario */
+    }
+    .correo-img {
+        height: 307px;
+        width: 1144px;
+        padding: 0px;
+    }
+  }
+  

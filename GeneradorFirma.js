@@ -80,7 +80,7 @@ function generarImagenFirma() {
     generarInformacion();
     // Llama a cambiarFondo para actualizar la imagen si es necesario
     // cambiarFondo();
-    
+
 
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
@@ -236,21 +236,42 @@ function cambiarFondo() {
     imagen.src = selectedOption;
 }
 
+
+// TODO: Esta funcion es para que le muestre al usuario que en el input correo solo debe ingresar el nombre de usuario, 
+// todo:ya que lo demas del correo se agrega automaticamente
 function mostrarMensajeCorreo() {
     const correoInput = document.getElementById('correo');
     const correoValue = correoInput.value.trim();
 
+    // Obtener el contenedor del mensaje
+    const mensajeContainer = document.getElementById('mensaje-correo');
+
     // Verificar si el correo tiene un formato válido (contiene '@')
     if (!correoValue.includes('@')) {
-        // Utilizar un alert de Bootstrap para mostrar el mensaje
-        const alertContainer = document.getElementById('alert-container');
-        alertContainer.innerHTML = `
-            <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                <strong>Sugerencia: </strong>Por favor, ingrese solo el nombre de usuario en el correo.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        // Crear un elemento span para mostrar el mensaje
+        const mensajeSpan = document.createElement('span');
+        mensajeSpan.innerHTML = `
+            <strong>Sugerencia: </strong>Por favor, ingrese solo el nombre de usuario en este campo.
         `;
-        // Limpiar el valor del campo de correo
-        correoInput.value = '';
+        mensajeSpan.classList.add('text-primary'); // Agregar clases de estilo si es necesario
+
+        // Limpiar el contenedor antes de agregar el nuevo mensaje
+        mensajeContainer.innerHTML = '';
+        // Agregar el nuevo mensaje al contenedor
+        mensajeContainer.appendChild(mensajeSpan);
+
+        // Puedes agregar estilos adicionales al input para indicar que hay un error
+        correoInput.classList.add('is-invalid');
+
+        // Eliminar el mensaje después de 3 segundos (3000 milisegundos)
+        setTimeout(() => {
+            mensajeContainer.innerHTML = '';
+            correoInput.classList.remove('is-invalid');
+        }, 4000);
+    } else {
+        // Limpiar el contenedor y quitar clases de estilo de error
+        mensajeContainer.innerHTML = '';
+        correoInput.classList.remove('is-invalid');
     }
 }
+
