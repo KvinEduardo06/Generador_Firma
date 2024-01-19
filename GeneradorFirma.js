@@ -20,6 +20,8 @@ function generarInformacion() {
 
     const correo = `${usuarioCorreo}@como.com.sv`;
 
+
+
     // Actualiza la información del empleado en el documento
     document.getElementById('name').innerHTML = `${nombre} <b class="last-name">${apellido}</b>`;
     document.getElementById('text-information-email').innerText = correo;
@@ -272,6 +274,19 @@ function generarImagenFirma() {
 
     // Obtener el contenedor de la firma generada
     const firmaContainer = document.getElementById('firma-generada');
+    const tieneTelefono = telefono !== '';
+    const telefonoInfo = tieneTelefono ? `
+    <li>
+        <i class="fa-solid fa-phone email-box m-2 p-2 "></i>
+        <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
+    </li>` : `
+    <li >
+        <i class="fa-solid fa-phone email-box m-2 p-2" style="background-color: white; color: white;"></i>
+        <span id="text-information-telefono" class=""></span>
+    </li>`;
+
+
+
 
     // Cambiar el QR según la sucursal seleccionada
     const qrUbicacion = document.querySelector('.Qr_Ubicacion-Generada');
@@ -302,13 +317,11 @@ function generarImagenFirma() {
                     <i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
                     <span id="text-information-sucursal" class="">Sucursal: ${sucursalOption.text}</span>
                 </li>
+                
+                ${formatPhoneNumber(telefonoInfo)}
 
-                <li>
-                    <i class="fa-solid fa-phone email-box m-2 p-2 "></i>
-                    <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
-                </li>
+           
             </ul>
-
             <div class="Qr_Ubicacion">
                 <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img">
             </div>
