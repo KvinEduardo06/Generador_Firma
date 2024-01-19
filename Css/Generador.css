@@ -105,7 +105,7 @@ ul {
     padding: 0px;
 }
 
-#firma-generada{
+#firma-generada {
     height: 392px;
     width: 1144px;
     padding: 0px;
@@ -130,7 +130,7 @@ ul {
 /* PARA UBICACION DEL QR */
 #Qr_Ubicacion_img {
     width: 91px;
-   
+
 }
 
 /* CON ESTO SE MOVERA EL QR LA POSICION */
@@ -169,18 +169,58 @@ ul {
     background-color: white;
     color: white;
 }
+
 @media (max-width: 767px) {
     .firma-generada {
-      overflow-x: auto;
-      white-space: nowrap; /* Evita que el contenido se desborde a la siguiente línea */
+        overflow-x: auto;
+        white-space: nowrap;
+        /* Evita que el contenido se desborde a la siguiente línea */
     }
-    .correo-img-generada{
+
+    .correo-img-generada {
         height: 307px;
         width: 1144px;
         padding: 0px;
     }
+
     .logo-footer {
-       margin-top: 10px;
+        margin-top: 10px;
     }
-  }
-  
+}
+
+
+/* ESTILOS PARA BOTON DE GENERAR FIRMA */
+button {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #004b93;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #004b93;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #004b93;
+}
+
+button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #004b93;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+/* Estilo para el fondo borroso */
+.blur-background {
+    filter: blur(5px);
+    /* Ajusta el valor según sea necesario */
+    pointer-events: none;
+    /* Permite hacer clic a través del fondo borroso */
+}

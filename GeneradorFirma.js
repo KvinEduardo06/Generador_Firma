@@ -75,12 +75,143 @@ function formatPhoneNumber(phoneNumber) {
 }
 
 
+// function generarImagenFirma() {
+//     // Genera la información primero
+//     generarInformacion();
+//     // Llama a cambiarFondo para actualizar la imagen si es necesario
+//     // cambiarFondo();
+
+
+//     const nombreInput = document.getElementById('nombre');
+//     const apellidoInput = document.getElementById('apellido');
+//     const correoInput = document.getElementById('correo');
+//     const sucursalSelect = document.getElementById('sucursal');
+//     const telefonoInput = document.getElementById('telefono');
+//     const areaSelect = document.getElementById('area');
+
+//     const nombre = nombreInput.value.toUpperCase();
+//     const apellido = apellidoInput.value.toUpperCase();
+//     const usuarioCorreo = correoInput.value; // Obtener el valor del usuario (sin la extensión)
+//     const sucursalOption = sucursalSelect.options[sucursalSelect.selectedIndex];
+//     const telefono = telefonoInput.value;
+//     const areaOption = areaSelect.options[areaSelect.selectedIndex];
+//     const correo = `${usuarioCorreo}@como.com.sv`;
+
+//     // Validar que todos los campos estén completos y con valores válidos
+//     if (!nombre || !apellido || !correo || !sucursalOption.value || !areaOption.value) {
+//         // Mostrar un Sweet Alert indicando que los campos son obligatorios y deben tener valores válidos
+//         Swal.fire({
+//             icon: 'error',
+//             title: 'Campos obligatorios',
+//             text: 'Todos los campos deben estar completos y con valores válidos antes de generar la imagen.',
+//         });
+//         return; // Detener la ejecución de la función si los campos no están completos o con valores inválidos
+//     }
+//     // Formatear el número de teléfono
+
+//     telefonoInput.value = formatPhoneNumber(telefono);
+
+//     // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
+//     const qrMap = {
+//         'Ahuchapán': 'QR_Ahuchapan.png',
+//         'San Salvador': 'QR_San_Salvador.png',
+//         'Santa Ana': 'QR_Santa_Ana.png',
+//         'Sonsonate': 'QR_Sonsonate.png',
+//         // ESTE ES EL MISMO PORQUE ES LA MISMA SUCURSAL
+//         'La Libertad': 'QR_San_Salvador.png',
+//         // FALTA SOYAPANGO
+//     };
+
+//     // Obtener la imagen cargada
+//     const imagenSrc = document.querySelector('.correo-img').src;
+
+//     // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
+//     const qrUbicacion = document.querySelector('.Qr_Ubicacion-Generada');
+
+//     if (sucursalOption.text in qrMap) {
+//         qrUbicacion.src = `img/Ubicaciones_QR/${qrMap[sucursalOption.text]}`;
+//         qrUbicacion.style.display = 'block';  // Mostrar el QR
+//     } else {
+//         qrUbicacion.style.display = 'none';   // Ocultar el QR para otras sucursales
+//     }
+//     // FIN QR
+
+
+
+//     // Mostrar la firma generada en el contenedor
+//     const firmaContainer = document.getElementById('firma-generada');
+
+//     // Determina si se proporciona el número de teléfono
+//     const tieneTelefono = telefono !== '';
+
+//     // Define el contenido del li de teléfono con los estilos apropiados
+//     const telefonoInfo = tieneTelefono ? `
+//     <li>
+//         <i class="fa-solid fa-phone email-box m-2 p-2 "></i>
+//         <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
+//     </li>` : `
+//     <li >
+//         <i class="fa-solid fa-phone email-box m-2 p-2" style="background-color: white; color: white;"></i>
+//         <span id="text-information-telefono" class=""></span>
+//     </li>`;
+
+//     firmaContainer.innerHTML = `
+//         <div class="container" id="firma-generada">
+//             <img src="${imagenSrc}" alt="" srcset="" class="correo-img">
+
+//             <div class="container-info-empleado-generado">
+//                 <h1 id="name" class="name">${nombre} <b class="last-name">${apellido}</b></h1>
+//                 <h5 id="text-information-area" class="area-generador">${areaOption.text} | Comercialización En Movimiento S.A de C.V</h5>
+
+//                 <!-- Para información de empleado -->
+//                 <ul class="pt-3">
+//                     <li>
+//                         <i class="fas fa-envelope email-box p-2 m-2 "></i>
+//                         <span id="text-information-email" class="">${correo}</span>
+//                     </li>
+
+//                     <li>
+//                         <i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
+//                         <span id="text-information-sucursal" class="">Sucursal: ${sucursalOption.text}</span>
+//                     </li>
+
+//                    ${telefonoInfo}
+
+//                 </ul>
+
+//                 <div class="Qr_Ubicacion">
+//                     <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img">
+//                 </div>
+//             </div>
+//         </div>
+//     `;
+
+//     // Ejemplo con html2canvas:
+//     html2canvas(firmaContainer).then(canvas => {
+//         // Convertir el canvas a una imagen
+//         const imageDataURL = canvas.toDataURL();
+//         // Guardar la imagen o hacer lo que necesites
+//         saveImage(imageDataURL, nombre, apellido, sucursalOption.text); // Utiliza sucursalOption.text aquí
+
+//         // Recargar la página después de un breve retraso (1000 milisegundos = 1 segundo)
+//         setTimeout(() => {
+//             location.reload();
+//         }, 1500);
+//     });
+
+//     // Limpiar los campos de entrada
+//     nombreInput.value = '';
+//     apellidoInput.value = '';
+//     correoInput.value = '';
+//     sucursalSelect.value = '';  // Modificado para limpiar el campo 'sucursal'
+//     telefonoInput.value = '';
+//     areaSelect.value = '';
+// }
+
+
 function generarImagenFirma() {
     // Genera la información primero
     generarInformacion();
-    // Llama a cambiarFondo para actualizar la imagen si es necesario
-    // cambiarFondo();
-
 
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
@@ -107,9 +238,26 @@ function generarImagenFirma() {
         });
         return; // Detener la ejecución de la función si los campos no están completos o con valores inválidos
     }
-    // Formatear el número de teléfono
 
-    telefonoInput.value = formatPhoneNumber(telefono);
+    // Aplicar la clase de fondo borroso al contenedor principal
+    const mainContainer = document.querySelector('.container-fluid');
+    mainContainer.classList.add('blur-background');
+
+    // Mostrar el spinner de carga mientras se genera la firma
+    Swal.fire({
+        title: 'Generando Firma...',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        },
+        willClose: () => {
+            // Quitar la clase de fondo borroso cuando se cierra Sweet Alert
+            mainContainer.classList.remove('blur-background');
+        },
+    });
+
+    // Obtener la imagen cargada
+    const imagenSrc = document.querySelector('.correo-img').src;
 
     // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
     const qrMap = {
@@ -122,12 +270,11 @@ function generarImagenFirma() {
         // FALTA SOYAPANGO
     };
 
-    // Obtener la imagen cargada
-    const imagenSrc = document.querySelector('.correo-img').src;
+    // Obtener el contenedor de la firma generada
+    const firmaContainer = document.getElementById('firma-generada');
 
-    // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
+    // Cambiar el QR según la sucursal seleccionada
     const qrUbicacion = document.querySelector('.Qr_Ubicacion-Generada');
-
     if (sucursalOption.text in qrMap) {
         qrUbicacion.src = `img/Ubicaciones_QR/${qrMap[sucursalOption.text]}`;
         qrUbicacion.style.display = 'block';  // Mostrar el QR
@@ -136,54 +283,34 @@ function generarImagenFirma() {
     }
     // FIN QR
 
-
-
     // Mostrar la firma generada en el contenedor
-    const firmaContainer = document.getElementById('firma-generada');
-
-    // Determina si se proporciona el número de teléfono
-    const tieneTelefono = telefono !== '';
-
-    // Define el contenido del li de teléfono con los estilos apropiados
-    const telefonoInfo = tieneTelefono ? `
-    <li>
-        <i class="fa-solid fa-phone email-box m-2 p-2 "></i>
-        <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
-    </li>` : `
-    <li >
-        <i class="fa-solid fa-phone email-box m-2 p-2" style="background-color: white; color: white;"></i>
-        <span id="text-information-telefono" class=""></span>
-    </li>`;
-
     firmaContainer.innerHTML = `
-        <div class="container" id="firma-generada">
-            <img src="${imagenSrc}" alt="" srcset="" class="correo-img">
+        <img src="${imagenSrc}" alt="" srcset="" class="correo-img">
 
-            <div class="container-info-empleado-generado">
-                <h1 id="name" class="name">${nombre} <b class="last-name">${apellido}</b></h1>
-                <h5 id="text-information-area" class="area-generador">${areaOption.text} | Comercialización En Movimiento S.A de C.V</h5>
+        <div class="container-info-empleado-generado">
+            <h1 id="name" class="name">${nombre} <b class="last-name">${apellido}</b></h1>
+            <h5 id="text-information-area" class="area-generador">${areaOption.text} | Comercialización En Movimiento S.A de C.V</h5>
 
-                <!-- Para información de empleado -->
-                <ul class="pt-3">
-                    <li>
-                        <i class="fas fa-envelope email-box p-2 m-2 "></i>
-                        <span id="text-information-email" class="">${correo}</span>
-                    </li>
+            <!-- Para información de empleado -->
+            <ul class="pt-3">
+                <li>
+                    <i class="fas fa-envelope email-box p-2 m-2 "></i>
+                    <span id="text-information-email" class="">${correo}</span>
+                </li>
 
-                    <li>
-                        <i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
-                        <span id="text-information-sucursal" class="">Sucursal: ${sucursalOption.text}</span>
-                    </li>
+                <li>
+                    <i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
+                    <span id="text-information-sucursal" class="">Sucursal: ${sucursalOption.text}</span>
+                </li>
 
-                ${telefonoInfo}
+                <li>
+                    <i class="fa-solid fa-phone email-box m-2 p-2 "></i>
+                    <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
+                </li>
+            </ul>
 
-        
-
-                </ul>
-
-                <div class="Qr_Ubicacion">
-                    <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img">
-                </div>
+            <div class="Qr_Ubicacion">
+                <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img">
             </div>
         </div>
     `;
@@ -195,10 +322,15 @@ function generarImagenFirma() {
         // Guardar la imagen o hacer lo que necesites
         saveImage(imageDataURL, nombre, apellido, sucursalOption.text); // Utiliza sucursalOption.text aquí
 
+        // Cerrar el spinner
+        Swal.close();
+
+        // Recargar la página después de un breve retraso (1000 milisegundos = 1 segundo)
+
         // Recargar la página después de un breve retraso (1000 milisegundos = 1 segundo)
         setTimeout(() => {
             location.reload();
-        }, 1500);
+        }, 2000);
     });
 
     // Limpiar los campos de entrada
@@ -209,6 +341,7 @@ function generarImagenFirma() {
     telefonoInput.value = '';
     areaSelect.value = '';
 }
+
 
 
 // TODO: Función para guardar la imagen (puedes personalizar según tus necesidades)
