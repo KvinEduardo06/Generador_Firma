@@ -288,14 +288,24 @@ function generarImagenFirma() {
         <li>
             <i class="fa-solid fa-phone email-box m-2 p-2"></i>
             <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
-        </li>` : '';
-    
+        </li>` : 
+        `
+        <li>
+            <i class="fa-solid fa-phone email-box m-2 p-2 sin-telefono" ></i>
+            <span id="text-information-telefono" class="sin-telefono">${formatPhoneNumber(telefono)}</span>
+        </li>`;
+
     const tieneTelefonoFijo = telefonoFijo !== '';
     const telefonoInfoFijo = tieneTelefonoFijo ? `
         <li>
             <i class="fa-solid fa-tty email-box m-2 p-2"></i>
             <span id="text-information-fijo" class="">${formatPhoneNumber(telefonoFijo)}</span>
-        </li>` : '';
+        </li>` : 
+        `
+        <li>
+            <i class="fa-solid fa-tty email-box m-2 p-2 sin-telefono"></i>
+            <span id="text-information-fijo" class="sin-telefono">${formatPhoneNumber(telefonoFijo)}</span>
+        </li>`;
 
 
     // Cambiar el QR según la sucursal seleccionada
