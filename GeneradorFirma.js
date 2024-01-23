@@ -8,6 +8,8 @@ function generarInformacion() {
     const correoInput = document.getElementById('correo');
     const sucursalSelect = document.getElementById('sucursal');
     const telefonoInput = document.getElementById('telefono');
+    const telefonoFijoInput = document.getElementById('telefono-fijo');
+
     const areaSelect = document.getElementById('area');
 
     // Obtener los valores en mayúsculas
@@ -16,6 +18,8 @@ function generarInformacion() {
     const usuarioCorreo = correoInput.value; // Obtener el valor del usuario (sin la extensión)
     const area = areaSelect.options[areaSelect.selectedIndex].text; // Obtener el texto seleccionado del área
     const telefono = telefonoInput.value;
+    const telefonoFijo = telefonoFijoInput.value;
+
     const sucursal = sucursalSelect.options[sucursalSelect.selectedIndex].text; // Obtener el texto seleccionado de la sucursal
 
     const correo = `${usuarioCorreo}@como.com.sv`;
@@ -31,6 +35,8 @@ function generarInformacion() {
     sucursalTexto.innerText = `Sucursal: ${sucursal}`;
 
     document.getElementById('text-information-telefono').innerHTML = formatPhoneNumber(telefono);
+    document.getElementById('text-information-fijo').innerHTML = formatPhoneNumber(telefonoFijo);
+
     document.getElementById('text-information-area').innerText = `${area} | Comercialización En Movimiento S.A de C.V `;
 
     // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
@@ -220,6 +226,8 @@ function generarImagenFirma() {
     const correoInput = document.getElementById('correo');
     const sucursalSelect = document.getElementById('sucursal');
     const telefonoInput = document.getElementById('telefono');
+    const telefonoFijoInput = document.getElementById('telefono-fijo');
+
     const areaSelect = document.getElementById('area');
 
     const nombre = nombreInput.value.toUpperCase();
@@ -227,6 +235,7 @@ function generarImagenFirma() {
     const usuarioCorreo = correoInput.value; // Obtener el valor del usuario (sin la extensión)
     const sucursalOption = sucursalSelect.options[sucursalSelect.selectedIndex];
     const telefono = telefonoInput.value;
+    const telefonoFijo = telefonoFijoInput.value;
     const areaOption = areaSelect.options[areaSelect.selectedIndex];
     const correo = `${usuarioCorreo}@como.com.sv`;
 
@@ -276,16 +285,17 @@ function generarImagenFirma() {
     const firmaContainer = document.getElementById('firma-generada');
     const tieneTelefono = telefono !== '';
     const telefonoInfo = tieneTelefono ? `
-    <li>
-        <i class="fa-solid fa-phone email-box m-2 p-2 "></i>
-        <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
-    </li>` : `
-    <li >
-        <i class="fa-solid fa-phone email-box m-2 p-2" style="background-color: white; color: white;"></i>
-        <span id="text-information-telefono" class=""></span>
-    </li>`;
-
-
+        <li>
+            <i class="fa-solid fa-phone email-box m-2 p-2"></i>
+            <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
+        </li>` : '';
+    
+    const tieneTelefonoFijo = telefonoFijo !== '';
+    const telefonoInfoFijo = tieneTelefonoFijo ? `
+        <li>
+            <i class="fa-solid fa-tty email-box m-2 p-2"></i>
+            <span id="text-information-fijo" class="">${formatPhoneNumber(telefonoFijo)}</span>
+        </li>` : '';
 
 
     // Cambiar el QR según la sucursal seleccionada
@@ -318,8 +328,8 @@ function generarImagenFirma() {
                     <span id="text-information-sucursal" class="">Sucursal: ${sucursalOption.text}</span>
                 </li>
                 
-                ${formatPhoneNumber(telefonoInfo)}
-
+                ${telefonoInfo}
+                ${telefonoInfoFijo}
            
             </ul>
             <div class="Qr_Ubicacion">

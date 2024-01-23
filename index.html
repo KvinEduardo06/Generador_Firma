@@ -71,6 +71,13 @@
                             <label for="telefono">Teléfono</label>
                         </div>
 
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="telefono-fijo" name="telefono-fijo"
+                                maxlength="8" placeholder="Teléfono Fijo o PBX" oninput="generarInformacion()">
+
+                            <label for="telefono">Teléfono Fijo o PBX</label>
+                        </div>
+
 
                         <div class="form-floating mb-3">
                             <select class="form-select" id="area" name="area" required oninput="generarInformacion()"
@@ -154,6 +161,12 @@
 
                                     <li><i class="fa-solid fa-phone email-box m-2 p-2 "></i>
                                         <span id="text-information-telefono" class="">TELEFONO</span>
+                                    </li>
+
+
+                                    <li>
+                                        <i class="fa-solid fa-tty email-box m-2 p-2"></i>
+                                        <span id="text-information-fijo" class="">TELEFONO FIJO O PBX</span>
                                     </li>
 
                                 </ul>
