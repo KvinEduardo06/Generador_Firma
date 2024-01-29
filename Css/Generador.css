@@ -24,12 +24,6 @@ body {
 
 }
 
-.container-info-empleado-generado {
-    position: relative;
-    top: -335px;
-    /* Para mover el texto a la izquierda */
-    left: 36%;
-}
 
 /* COLOR DE TEXTO DE APELLIDO */
 .name {
@@ -37,6 +31,7 @@ body {
     text-transform: uppercase;
 
 }
+
 
 .last-name {
     color: #104c90 !important;
@@ -70,21 +65,7 @@ body {
 
 /* ============== este seria para el que genera la imagen y como se generaria========== */
 
-.email-box-generador {
-    display: inline-block;
-    background-color: #11111f;
-    /* Color de fondo del cuadro azul */
-    color: #ffffff;
-    /* Color del texto dentro del cuadro azul */
-    padding: 5px 10px;
-    /* Espaciado interno del cuadro azul */
-    border-radius: 5px;
-    /* Bordes redondeados */
-    /* width: 65px; */
-    width: 50px;
 
-    text-align: center;
-}
 
 .information-list {
     font-size: 27px;
@@ -125,12 +106,12 @@ ul {
     color: white !important;
 }
 
-.option-nav{
+.option-nav {
     color: white;
-   
+
 }
 
-.option-nav:hover{
+.option-nav:hover {
     color: white;
     border-bottom: 1px solid rgb(255, 255, 255);
     transition: all;
@@ -140,18 +121,13 @@ ul {
     width: 60px;
 }
 
-/* PARA UBICACION DEL QR */
+
+
 #Qr_Ubicacion_img {
     width: 91px;
-
 }
 
-/* CON ESTO SE MOVERA EL QR LA POSICION */
-.Qr_Ubicacion {
-    position: relative;
-    top: -80px;
-    left: 625px;
-}
+
 
 .Qr_Ubicacion-Generada {
     position: relative;
@@ -236,4 +212,50 @@ button:active {
     /* Ajusta el valor según sea necesario */
     pointer-events: none;
     /* Permite hacer clic a través del fondo borroso */
+}
+
+/* ESTO ES PARA EL TAMAÑO DE LA FUENTE DE LA IMAGEN QUE SE GENERA DE LA FIRMA */
+.information-generada {
+    font-size: 39px;
+}
+
+.email-box-generador {
+    display: inline-block;
+    background-color: #11111f;
+    /* Color de fondo del cuadro azul */
+    color: #ffffff;
+    /* Color del texto dentro del cuadro azul */
+    padding: 45px 45px;
+    /* Espaciado interno del cuadro azul */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    /* width: 65px; */
+    width: 55px;
+
+    text-align: center;
+}
+
+.container-info-empleado-generado {
+    position: relative;
+    top: -399px;
+    /* Para mover el texto a la izquierda */
+    left: 36%;
+}
+
+/* PARA UBICACION DEL QR */
+#Qr_Ubicacion_img-generada {
+    width: 200px;
+}
+
+/* .CON ESTO SE MOVERA EL QR LA POSICION */
+.Qr_Ubicacion {
+    position: relative;
+    top: -190px;
+    left: 540px;
+}
+.area{
+    font-size: 50px;
+}
+.area-generador{
+    font-size: 22px;
 }

@@ -152,7 +152,7 @@ function generarImagenFirma() {
     const tieneTelefono = telefono !== '';
     const telefonoInfo = tieneTelefono ? `
         <li>
-            <i class="fa-solid fa-phone email-box m-2 p-2"></i>
+            <i class="fa-solid fa-phone email-box-generador  m-2 p-2"></i>
             <span id="text-information-telefono" class="">${formatPhoneNumber(telefono)}</span>
         </li>` : 
         `
@@ -164,7 +164,7 @@ function generarImagenFirma() {
     const tieneTelefonoFijo = telefonoFijo !== '';
     const telefonoInfoFijo = tieneTelefonoFijo ? `
         <li>
-            <i class="fa-solid fa-tty email-box m-2 p-2"></i>
+            <i class="fa-solid fa-tty email-box-generador   m-2 p-2"></i>
             <span id="text-information-fijo" class="">${formatPhoneNumber(telefonoFijo)}</span>
         </li>` : 
         `
@@ -189,18 +189,18 @@ function generarImagenFirma() {
         <img src="${imagenSrc}" alt="" srcset="" class="correo-img">
 
         <div class="container-info-empleado-generado">
-            <h1 id="name" class="name">${nombre} <b class="last-name">${apellido}</b></h1>
+            <h1 id="name" class="name mt-2">${nombre} <b class="last-name mt-2">${apellido}</b></h1>
             <h5 id="text-information-area" class="area-generador">${areaOption.text} | Comercialización En Movimiento S.A de C.V</h5>
 
             <!-- Para información de empleado -->
-            <ul class="pt-3">
+            <ul class="information-generada">
                 <li>
-                    <i class="fas fa-envelope email-box p-2 m-2 "></i>
-                    <span id="text-information-email" class="">${correo}</span>
+                    <i class="fas fa-envelope email-box-generador p-2 m-2 "></i>
+                    <span id="text-information-email-generada" class="">${correo}</span>
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
+                    <i class="fa-solid fa-location-pin email-box-generador m-2 p-2  "></i>
                     <span id="text-information-sucursal" class="">Sucursal: ${sucursalOption.text}</span>
                 </li>
                 
@@ -209,7 +209,7 @@ function generarImagenFirma() {
            
             </ul>
             <div class="Qr_Ubicacion">
-                <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img">
+                <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img-generada">
             </div>
         </div>
     `;
