@@ -116,12 +116,25 @@ ul {
 
 .container-footer {
     background-color: #061623;
-
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
 
+.navbar-generador {
+    background-color: #061623;
+    color: white !important;
+}
+
+.option-nav{
+    color: white;
+   
+}
+
+.option-nav:hover{
+    color: white;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    transition: all;
+}
 
 .logo-footer {
     width: 60px;

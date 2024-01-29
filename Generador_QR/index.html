@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Codigo QR ©</title>
+  <link rel="icon" href="IMG/Logo_QR.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="CSS/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="form">
+    <h1>GENERADOR DE QR COMO</h1>
+    <form>
+      <div class="form-floating mb-3">
+        <select class="form-select" id="sucursal" name="sucursal" required >
+          <option value="" disabled selected class="bg-primary text-white fw-bold">Selecciona una
+            sucursal</option>
+          <option value="San_Salvador">San Salvador</option>
+          <option value="Santa_Ana">Santa Ana</option>
+          <option value="Soyapango">Soyapango</option>
+          <option value="Ahuchapan">Ahuchapán</option>
+          <option value="Sonsonate">Sonsonate</option>
+          <option value="San_Salvador">La Libertad</option>
+        </select>
+        <label for="sucursal">Sucursal</label>
+      </div>
+      <input type="url" id="website" name="website" placeholder="Ingrese el URL" required />
+
+
+      <div id="qrcode-container">
+        <div id="qrcode" class="qrcode bg-red"></div>
+
+        <div id="logo-container">
+          <img id="logo" src="IMG/Logo_QR.png" alt="Company Logo" class="logo">
+
+        </div>
+      </div>
+
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+
+        <button type="button" onclick="generateQRCode()" class="btn-generate-qr m-2">Generar Codigo</button>
+        <button type="button" onclick="downloadQRCode()" class="btn-download-qr m-2">Descargar QR</button>
+      </div>
+
+    </form>
+  </div>
+
+
+
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script src="JS/GeneradorQr.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+
+</html>
