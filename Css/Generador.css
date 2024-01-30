@@ -242,7 +242,7 @@ button:active {
     position: relative;
     top: -425px;
     /* Para mover el texto a la izquierda */
-    left: 30%;
+    left: 31%;
 }
 
 /* PARA UBICACION DEL QR */
@@ -255,7 +255,7 @@ button:active {
 .Qr_Ubicacion {
     position: relative;
     top: -180px;
-    left: 610px;
+    left: 605px;
 }
 
 .area {
@@ -263,6 +263,6 @@ button:active {
 }
 
 .area-generador {
-    font-size: 25.5px;
+    font-size: 24px;
     font-weight: bold;
 }

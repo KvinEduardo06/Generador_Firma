@@ -195,7 +195,7 @@ function generarImagenFirma() {
             <h2 id="text-information-area" class="area-generador">${areaOption.text} | Comercialización En Movimiento S.A de C.V</h2>
 
             <!-- Para información de empleado -->
-            <ul class="information-generada">
+            <ul class="information-generada mt-3">
                 <li>
                     <i class="fas fa-envelope email-box-generador p-2 m-2 "></i>
                     <span id="text-information-email-generada" class="">${correo}</span>
