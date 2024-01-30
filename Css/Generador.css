@@ -18,9 +18,8 @@ body {
 
 .container-info-empleado {
     position: relative;
-    top: -310px;
-    /* Para mover el texto a la izquierda */
-    left: 36%;
+    top: -380px;
+    left: 32%;
 
 }
 
@@ -81,14 +80,18 @@ ul {
 }
 
 .correo-img {
-    height: 392px;
-    width: 1144px;
+    /* height: 392px;
+    width: 1144px; */
+    height: 439px;
+    width: 1189px;
     padding: 0px;
 }
 
 #firma-generada {
-    height: 392px;
-    width: 1144px;
+    /* height: 392px;
+    width: 1144px; */
+    height: 439px;
+    width: 1189px;
     padding: 0px;
 }
 
@@ -131,8 +134,8 @@ ul {
 
 .Qr_Ubicacion-Generada {
     position: relative;
-    top: -400px;
-    left: 90.5%;
+    top: -431px;
+    left: 74.5%;
 }
 
 #line-container {
@@ -230,32 +233,36 @@ button:active {
     border-radius: 5px;
     /* Bordes redondeados */
     /* width: 65px; */
-    width: 55px;
+    width: 58px;
 
     text-align: center;
 }
 
 .container-info-empleado-generado {
     position: relative;
-    top: -399px;
+    top: -425px;
     /* Para mover el texto a la izquierda */
-    left: 36%;
+    left: 30%;
 }
 
 /* PARA UBICACION DEL QR */
 #Qr_Ubicacion_img-generada {
     width: 200px;
+
 }
 
 /* .CON ESTO SE MOVERA EL QR LA POSICION */
 .Qr_Ubicacion {
     position: relative;
-    top: -190px;
-    left: 540px;
+    top: -180px;
+    left: 610px;
 }
-.area{
+
+.area {
     font-size: 50px;
 }
-.area-generador{
-    font-size: 22px;
+
+.area-generador {
+    font-size: 25.5px;
+    font-weight: bold;
 }

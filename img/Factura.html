@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Puro Css</title>
+    </head>
+
+    <body>
+    <div class="encabezado">
+        <h1 class="text-center title-document">DOCUMENTO TRIBUTARIO ELECTRÓNICO</h1>
+        <p class="text-center tipo-factura-title">COMPROBANTE DE CREDITO FISCAL </p>
+    </div>
+
+    <div class="contenedor">
+        <div class="elemento-logo" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;"> <img src="http://localhost:3000/img/Logo.jpg" alt="logo-COMO" class="logo-Como">
+        </div>
+        <div class="elemento-qr" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;">
+            <img src="${QR}" alt="QR" class="QR">
+        </div>
+        <div class="elemento-info-right">
+            <p class="info-first-left"><b>Código de Generación:</b> ${codigo_generacion}</p>
+            <p class="info-first-left"><b>Número de Control:</b> ${Numero_Control}</p>
+            <p class="info-first-left"><b>Sello de Recepción: </b>${selloMH}</p>
+        </div>
+        <div class="elemento-info-left">
+            <p><b>Modelo de Facturación:</b> ${modelo}</p>
+            <p><b>Tipo de Transmisión:</b> ${Transmision}</p>
+            <p><b>Fecha y Hora de Generación:</b> ${fecha_hora}</p>
+        </div>
+        <div class="elemento-info-emisor">
+
+            <h4 class="title-emisor">Emisor</h4>
+            <p class="info-left"><b>Nombre o Razón Social:</b> ${Nombre_Razon_Social}</p>
+            <p class="info-left"><b>NIT:</b> ${NIT}</p>
+            <p class="info-left"><b>NRC:</b> ${NRC} </p>
+            <p class="info-left"><b>Actividad Económica:</b> ${Act_Economica}</p>
+            <p class="info-left"><b>Dirección:</b> ${Direccion_Emisor}</p>
+            <p class="info-left"><b>Número de Teléfono:</b> ${telefono_Emisor}</p>
+            <p class="info-left"><b>Correo Electrónico:</b> ${Correo_Emisor}</p>
+            <p class="info-left"><b>Tipo de Establecimiento:</b> Sucursal - ${sucursal}</p>
+
+        </div>
+        <div class="elemento-info-receptor">
+            <h4 class="title-emisor">Receptor</h4>
+            <p class="info-left"><b>Nombre o Razón Social:</b> ${Nombre}</p>
+            <p class="info-left"><b>NIT:</b> ${NITReceptor}</p>
+            <p class="info-left"><b>Actividad Económica:</b> ${codActividad}</p>
+            <p class="info-left"><b>NRC:</b> ${NRCReceptor}</p>
+            <p class="info-left"><b>Dirección:</b> ${Direccion}</p>
+            <p class="info-left"><b>Correo Electrónico:</b> ${Correo}</p>
+            <p class="info-left"><b>Teléfono:</b> ${Telefono}</p>
+ 
+        </div>
+
+    </div>
+    </div>
+    <div class="container-table" style="padding-top: 2px;margin-left: 30px;">
+        <table style="width: 100%;/* font-size: 22px;" id="Resumen-detalle">
+            <thead style="background-color: gray;">
+                <tr>
+                    <th style="background-color: #362f4b; text-align: center;">N°</th>
+                    <th style="background-color: #362f4b; text-align: center;">Cantidad</th>
+                    <th style="background-color: #362f4b; text-align: center;">Unidad</th>
+                    <th style="background-color: #362f4b; text-align: center;">Descripción</th>
+                    <th style="background-color: #362f4b; text-align: center;">Precio <br> Unitario</th>
+                    <th style="background-color: #362f4b; text-align: center;">Descuento <br> por Item</th>
+                    <th style="background-color: #362f4b; text-align: center;">Ventas <br> No Sujetas</th>
+                    <th style="background-color: #362f4b; text-align: center;">Ventas <br> Exentas</th>
+                    <th style="background-color: #362f4b; text-align: center;">Ventas <br> Gravadas</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${cuerpoDocumento.map((producto, index) => `
+                    <tr style="text-align: center;">
+                        <td style="text-align: center;">${index + 1}</td>
+                        <td style="text-align: center;">${producto.cantidad}</td>
+                        <td style="text-align: center;">${producto.uniMedida == 59 ? "Unidad" : ""}</td>
+                        <td style="text-align: center;">${producto.descripcion}</td>
+                        <td style="text-align: center;">$${producto.precioUni.toFixed(2)}</td>
+                        <td style="text-align: center;">$${producto.montoDescu.toFixed(2)}</td>
+                        <td style="text-align: center;">$${producto.ventaNoSuj.toFixed(2)}</td>
+                        <td style="text-align: center;">$${producto.ventaExenta.toFixed(2)}</td>
+                        <td style="text-align: center;">$${producto.ventaGravada.toFixed(2)}</td>
+                    </tr>
+                `).join('')}
+
+            </tbody>
+        </table>
+    </div>
+    <!-- tabla de totales -->
+    <div class="container-totales" style="padding-top: 20px;margin-left: 21px;     padding-right: 20px;">
+
+        <div class="table-wrapper">
+            <p class="title-numero-letras"><b>Valor en Letras:</b> ${Total_Letras}</p>
+            <p class="title-numero-letras"><b>Condición de la Operación:</b> ${Condi_Operacion}</p>
+            <p class="title-numero-letras"><b>Forma de Pago:</b> ${Forma_Pago_ccf}</p>
+
+            <table class="table-segunda">
+                <thead>
+                    <th colspan="2" class="title-table">EXTENSIÓN</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="celdas-text">Nombre Entrega
+                        </td>
+                        <td class="celdas-text-number"> -</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Documento
+                        </td>
+                        <td class="celdas-text-number"> -</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Nombre Recibe
+                        </td>
+                        <td class="celdas-text-number"> -</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">N° Documento
+                        </td>
+                        <td class="celdas-text-number"> -</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="celdas-text">Sumatoria de Ventas:</td>
+                        <td class="celdas-text-number">${Sumatoria_Ventas}</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Ventas no Sujetas:</td>
+                        <td class="celdas-text-number">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Total Gravada:</td>
+                        <td class="celdas-text-number">${totalGravada}</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Monto global de Descuento, Bonificación, Rebajas y otros a ventas gravadas:</td>
+                        <td class="celdas-text-number">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Impuesto al Valor Agregado 13%:</td>
+                        <td class="celdas-text-number">${iva}</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Sub-Total:</td>
+                        <td class="celdas-text-number">${SubTotal}</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">IVA Percibido:</td>
+                        <td class="celdas-text-number">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">IVA Retenido:</td>
+                        <td class="celdas-text-number">${ivaRetenido}</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Retención Renta:</td>
+                        <td class="celdas-text-number">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text">Monto Total de la Operación:</td>
+                        <td class="celdas-text-number">${Monto_Total_Operacion}</td>
+                    </tr>
+                    <tr>
+                        <td class="celdas-text" id="total-pagar">Total a Pagar:</td>
+                        <td id="total-pagar" class="celdas-text-number">${Total_Pagar}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .container-totales {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        margin-left: 21px;
+        padding-right: 20px;
+    }
+
+    .table-wrapper {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        /* Espacio entre las tablas */
+        overflow: auto;
+        /* Para que las tablas tengan scroll si es necesario */
+    }
+
+    .table-totales,
+    .table-segunda {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Estilos para las tablas, celdas, etc. */
+    .table-totales td,
+    .table-segunda td {
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+
+    .table-totales {
+        width: 50%;
+    }
+
+    .celdas-text {
+        font-weight: 600;
+        padding: 8px !important;
+    }
+
+    .celdas-text-number {
+        padding: 8px !important;
+
+    }
+
+    th {
+        background-color: #ccc;
+    }
+
+    th,
+    td:last-child {
+        text-align: right;
+    }
+
+    /* Estilo para el contenedor de la tabla */
+    .tabla-container {
+        float: right;
+        /* Coloca el contenedor en el lado derecho */
+        margin-right: 20px;
+        /* Puedes ajustar el margen según tus necesidades */
+    }
+
+    .encabezado {
+        text-align: center;
+        margin-bottom: 20px;
+        /* Espacio entre el encabezado y el contenedor */
+    }
+
+    .logo-Como {
+        width: 400px;
+        height: 150px;
+    }
+
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: -30px !important;
+    }
+
+    .elemento-logo {
+        display: flex;
+        justify-content: start;
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .elemento-info-left p {
+        font-size: 22px;
+        margin: 8px;
+
+    }
+
+    .elemento-qr {
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .elemento-info-right {
+        margin-top: -16px;
+        margin-left: 30px;
+        padding-left: 11px;
+        height: 134px;
+    }
+
+    .elemento-info-left {
+        margin-top: -16px;
+        margin-left: 30px;
+        padding-left: 11px;
+        height: 134px;
+    }
+
+    .info-left {
+        font-size: 22px;
+        margin: 6px;
+
+    }
+
+    .info-first-left {
+        font-size: 22px;
+        margin: 8px;
+    }
+
+    .elemento-info-emisor {
+        border: 4px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        margin-left: 30px;
+        margin-top: -48px;
+    }
+
+    .title-emisor {
+        margin-top: 0px !important;
+        text-align: center;
+        font-size: 30px;
+        margin: 0px;
+    }
+
+    .elemento-info-receptor {
+        border: 4px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        margin-left: 20px;
+        margin-right: 15px;
+        margin-top: -48px;
+    }
+
+    .QR {
+        width: 200px;
+        height: 200px;
+    }
+
+    .tipo-factura-title {
+        color: #261f20;
+        font-size: 25px;
+        font-weight: 700;
+        margin: 0px;
+    }
+
+    .title-document {
+        margin: 0px;
+
+    }
+
+    .container-table {
+        border-radius: 36px;
+        background: #fff;
+        box-shadow: 0 0 10px rgb(0 0 0 / 19%);
+        margin: 17px;
+    }
+
+    @media (max-width: 768px) {
+        .container-table {
+            border-radius: 36px;
+            background: #fff;
+            margin: 17px;
+        }
+    }
+
+    @media (min-width: 769px) {
+
+        .container-totales,
+        .table-wrapper {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
+        }
+    }
+
+    /* Estilos para pantallas pequeñas (hasta 768px) */
+    @media (max-width: 768px) {
+
+        .container-totales,
+        .table-wrapper,
+        container-table {
+            box-shadow: none;
+        }
+    }
+
+    table {
+        padding-top: 20px;
+        width: 100%;
+        font-size: 20px;
+        border-collapse: collapse;
+        /* Asegurar que las celdas de la tabla estén contiguas */
+    }
+
+    th,
+    td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #362f4b;
+        color: #fff;
+    }
+
+    tbody tr:hover {
+        background-color: #f5f5f5;
+        /* Cambiar el color de fondo al pasar el mouse */
+    }
+
+    .title-numero-letras {
+        margin: 2px;
+        font-size: 22px;
+    }
+
+    .title-table {
+        text-align: center;
+    }
+
+    #total-pagar {
+        background-color: #362f4b;
+        color: white;
+        font-weight: bold;
+    }
+    </style>
+
+    

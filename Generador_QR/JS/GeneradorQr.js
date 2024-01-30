@@ -118,7 +118,6 @@ $(document).ready(function () {
     guardarQR();
   });
 
-  // Función para guardar el código QR
 
   // Función para guardar el código QR
   function guardarQR() {
