@@ -97,24 +97,36 @@ $(document).ready(function () {
 
 
   // Función para guardar el código QR
-  function guardarQR() {
-    // Mostrar contenedor de carga
-    $('#loading-container').show();
+function guardarQR() {
+  // Mostrar contenedor de carga
+  $('#loading-container').show();
 
-    html2canvas(document.getElementById('codigo-qr')).then(function (canvas) {
-      var imgData = canvas.toDataURL('image/png');
-      var a = document.createElement('a');
-      a.href = imgData;
-      a.download = 'codigo_qr.png';
-      a.click();
+  // Obtener el contenedor del código QR
+  var codigoQRElement = document.getElementById('codigo-qr');
 
-      // Limpiar el contenido después de guardar el QR
-      $('#codigo-qr').html('');
-      $('#loading-container').hide();
-      $('#texto').val(''); // Limpia el contenido del input de texto
+  // Establecer el tamaño específico
+  codigoQRElement.style.width = '350px';
+  codigoQRElement.style.height = '350px';
 
-      // Restablecer la variable de estado después de completar la generación
-      generandoQR = false;
-    });
-  }
+  html2canvas(codigoQRElement).then(function (canvas) {
+    // Restaurar el tamaño original del contenedor del código QR
+    codigoQRElement.style.width = ''; // Limpiar el estilo width
+    codigoQRElement.style.height = ''; // Limpiar el estilo height
+
+    var imgData = canvas.toDataURL('image/png');
+    var a = document.createElement('a');
+    a.href = imgData;
+    a.download = 'codigo_qr.png';
+    a.click();
+
+    // Limpiar el contenido después de guardar el QR
+    $('#codigo-qr').html('');
+    $('#loading-container').hide();
+    $('#texto').val(''); // Limpia el contenido del input de texto
+
+    // Restablecer la variable de estado después de completar la generación
+    generandoQR = false;
+  });
+}
+
 });
