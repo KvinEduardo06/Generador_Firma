@@ -210,10 +210,11 @@ function generarImagenFirma() {
                 ${telefonoInfoFijo}
            
             </ul>
-            <div class="Qr_Ubicacion">
+            
+        </div>
+        <div class="Qr_Ubicacion">
                 <img src="${qrUbicacion.src}" alt="" id="Qr_Ubicacion_img-generada">
             </div>
-        </div>
     `;
 
     // Ejemplo con html2canvas:

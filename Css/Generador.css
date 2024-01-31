@@ -240,7 +240,10 @@ button:active {
 
 .container-info-empleado-generado {
     position: relative;
-    top: -425px;
+    /* top: -425px; */
+
+    top: -420px;
+
     /* Para mover el texto a la izquierda */
     left: 31%;
 }
@@ -254,8 +257,8 @@ button:active {
 /* .CON ESTO SE MOVERA EL QR LA POSICION */
 .Qr_Ubicacion {
     position: relative;
-    top: -180px;
-    left: 605px;
+    top: -600px;
+    left: 950px;
 }
 
 .area {
