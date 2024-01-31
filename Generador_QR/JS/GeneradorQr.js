@@ -1,64 +1,41 @@
-// function generateQRCode() {
-//   let website = document.getElementById("website").value;
-//   if (website) {
-//     let qrcodeContainer = document.getElementById("qrcode");
-//     qrcodeContainer.innerHTML = "";
-
-//     // Create the QR code with options for error correction and a custom logo
-//     let qrcode = new QRCode(qrcodeContainer, {
-//       text: website,
-//       width: 300, // Adjust width as needed
-//       height: 300, // Adjust height as needed
-//       colorDark: "#000000",
-//       colorLight: "#ffffff",
-//       correctLevel: QRCode.CorrectLevel.H, // High error correction
-//       logo: document.getElementById("logo").src,
-//       logoWidth: 40, // Adjust logo size as needed
-//       logoHeight: 40 // Adjust logo size as needed
-//     });
-
-//     document.getElementById("qrcode-container").style.display = "block";
-//   } else {
-//     alert("Please enter a valid URL");
-//   }
-// }
-
-
-// // function downloadQRCode() {
-// //   let qrcodeContainer = document.getElementById("qrcode-container");
-// //   let imageDataURI = qrcodeContainer.querySelector("canvas").toDataURL("image/png");
-
-
-// //   let link = document.createElement("a");
-// //   link.href = imageDataURI;
-// //   link.download = "qrcode.png";
-// //   document.body.appendChild(link);
-// //   link.click();
-// //   document.body.removeChild(link);
-// // }
-
-
-// function downloadQRCode() {
-//   var sucursal = document.getElementById("sucursal").value;
-//   var nombreArchivo = "QR_" + sucursal.replace(/\s/g, "_") + ".png"; // Reemplaza espacios con guiones bajos
-
-//   // Utiliza html2canvas para convertir el contenedor del QR en una imagen
-//   html2canvas(document.getElementById("qrcode-container")).then(function (canvas) {
-//     var image = canvas.toDataURL("image/png");
-
-//     // Crea un enlace para descargar la imagen con el nombre de archivo generado
-//     var link = document.createElement('a');
-//     link.href = image;
-//     link.download = nombreArchivo;
-//     link.click();
-//   });
-// }
 $(document).ready(function () {
+
+  // Variable de estado para verificar si se está generando el código QR
+  var generandoQR = false;
+
   // Cuando se cambia el texto, se genera el código QR
   $('#texto').on('input', function () {
+    // Verificar si se está generando el código QR
+    if (generandoQR) {
+      // Si se está generando, no permitir cambios en el input
+      $(this).val($(this).data('last-value')); // Restaurar el valor anterior
+      return;
+    }
+
     var texto = $(this).val();
-    generarCodigoQR(texto);
+    if (texto.trim() === '') {
+      // Limpiar el código QR si el texto está vacío
+      limpiarCodigoQR();
+    } else {
+      // Generar el código QR solo si hay texto
+      generarCodigoQR(texto);
+    }
   });
+
+
+  // Botón para limpiar el input y el código QR
+  $('#limpiar-input').click(function () {
+    $('#texto').val(''); // Limpiar el contenido del input
+    limpiarCodigoQR(); // Limpiar el código QR
+  });
+
+  // ... (tu código existente)
+
+  function limpiarCodigoQR() {
+    $('#codigo-qr').hide(); // Ocultar el contenedor del código QR
+    $('#codigo-qr').empty(); // Vaciar el contenido del código QR
+  }
+  
 
   // Función para generar el código QR con logo
   function generarCodigoQR(texto) {
@@ -113,7 +90,7 @@ $(document).ready(function () {
         title: "Ups!",
         text: "Debes ingresar una ruta valida para generar QR",
         icon: "error"
-      });      return;
+      }); return;
     }
     guardarQR();
   });
@@ -136,6 +113,8 @@ $(document).ready(function () {
       $('#loading-container').hide();
       $('#texto').val(''); // Limpia el contenido del input de texto
 
+      // Restablecer la variable de estado después de completar la generación
+      generandoQR = false;
     });
   }
 });

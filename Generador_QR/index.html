@@ -29,8 +29,12 @@
               <!-- INPUT DONDE SE PEGARA EL URL -->
               <div class="form-group mb-3">
                 <label for="texto">Texto para el QR:</label>
-                <input type="text" class="form-control" id="texto" placeholder="Ingrese el texto">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="texto" placeholder="Ingrese el texto">
+                  <button class="btn btn-outline-secondary" type="button" id="limpiar-input">X</button>
+                </div>
               </div>
+              
 
               <!-- Contenedor de carga -->
               <div id="loading-container" class="text-center">
