@@ -258,7 +258,10 @@ button:active {
 .Qr_Ubicacion {
     position: relative;
     top: -600px;
-    left: 950px;
+    /* left: 950px; */
+
+    left: 83.5%;
+
 }
 
 .area {
