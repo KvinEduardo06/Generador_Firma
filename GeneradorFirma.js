@@ -116,7 +116,7 @@ function generarImagenFirma() {
             text: 'Todos los campos deben estar completos y con valores válidos antes de generar la imagen.',
         });
         return; // Detener la ejecución de la función si los campos no están completos o con valores inválidos
-    }
+    }1
 
     // Aplicar la clase de fondo borroso al contenedor principal
     const mainContainer = document.querySelector('.container-fluid');
