@@ -41,7 +41,7 @@ function generarInformacion() {
 
     // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
     const qrMap = {
-        'Ahuchapán': 'QR_Ahuchapan.png',
+        'Ahuachapán': 'QR_Ahuachapan.png',
         'San Salvador': 'QR_San_Salvador.png',
         'Santa Ana': 'QR_Santa_Ana.png',
         'Sonsonate': 'QR_Sonsonate.png',
@@ -140,7 +140,7 @@ function generarImagenFirma() {
 
     // TODO PARA CAMBIAR EL QR DE Mapeo de sucursales a rutas de imágenes de QR
     const qrMap = {
-        'Ahuchapán': 'QR_Ahuchapan.png',
+        'Ahuachapán': 'QR_Ahuchapan.png',
         'San Salvador': 'QR_San_Salvador.png',
         'Santa Ana': 'QR_Santa_Ana.png',
         'Sonsonate': 'QR_Sonsonate.png',
