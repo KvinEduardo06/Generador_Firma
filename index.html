@@ -33,7 +33,6 @@
                         <a class="nav-link option-nav" href="./Generador_QR/index.html" target="_blank">Generador de
                             QR</a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -58,17 +57,13 @@
                                 required oninput="generarInformacion()">
                             <label for="floatingInput">Apellido</label>
                         </div>
-                        <!-- mensaje para ingresar solo usuario -->
                         <div id="mensaje-correo" class="mb-2"></div>
-                        <!-- fin mensaje para ingresar solo usuario -->
 
                         <div class="form-floating mb-3">
-
                             <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo"
                                 oninput="generarInformacion()" onclick="mostrarMensajeCorreo()" required>
                             <label for="correo">Correo</label>
                         </div>
-
 
                         <div class="form-floating mb-3">
                             <select class="form-select" id="sucursal" name="sucursal" required
@@ -81,6 +76,7 @@
                                 <option value="Ahucha">Ahuachapán</option>
                                 <option value="Sonso">Sonsonate</option>
                                 <option value="LaLibertad">La Libertad</option>
+                                <option value="Apopa">Apopa</option> <!-- ✅ NUEVA SUCURSAL -->
                             </select>
                             <label for="sucursal">Sucursal</label>
                         </div>
@@ -88,21 +84,17 @@
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control" id="telefono" name="telefono" maxlength="8"
                                 placeholder="Teléfono" oninput="generarInformacion()">
-
                             <label for="telefono">Teléfono</label>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control" id="telefono-fijo" name="telefono-fijo"
                                 maxlength="8" placeholder="Teléfono Fijo o PBX" oninput="generarInformacion()">
-
                             <label for="telefono">Teléfono Fijo o PBX</label>
                         </div>
 
-
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="area" name="area" required oninput="generarInformacion()"
-                                required>
+                            <select class="form-select" id="area" name="area" required oninput="generarInformacion()">
                                 <option value="" disabled selected class="bg-primary text-white fw-bold">Selecciona un
                                     área</option>
                                 <option value="INFORMATICA">Informática</option>
@@ -124,101 +116,55 @@
                                 <option value="SUPERVISOR_PROMOTOR">Supervisor Promotor</option>
                                 <option value="SUPERVISOR_PANEL">Supervisor Panel</option>
                                 <option value="ASISTENTE_ADMINISTRATIVO">Asistente Administrativo</option>
-
-                                <!-- Agrega más opciones según sea necesario -->
                             </select>
                             <label for="area">Área</label>
                         </div>
 
-                        <!-- <div class="form">
-                            <select class="form-select" id="selectFondo" onchange="cambiarFondo()">
-                                <option value="img/Firma.png">Fondo Logo Redondo</option> -->
-                        <!-- <option value="img/IDEA2.png">Fondo Logo Cuadrado</option>
-                                <option value="img/fondo3.png">Fondo Casita</option> -->
-                        <!-- 
-                            </select>
-                        </div> -->
-
-
                         <div class="d-grid mt-3">
-
-                            <!-- Agrega un div para el indicador de carga -->
                             <div id="loadingIndicator" class="d-none text-primary">Generando firma...</div>
-
-                            <!-- Botón para generar la firma -->
-
                             <button onclick="generarImagenFirma()">Generar Firma</button>
-                            </button>
-
                         </div>
-
                     </form>
                 </div>
+
                 <div class="col-md-9">
                     <h4 class="mb-3">VISTA PREVIA:</h4>
                     <hr>
                     <div class="container firma-generada">
                         <div class="container" id="firma-generada">
-
-                            <!-- TODO: AQUI SE CAMBIARA EL DISEÑO DE LA FIRMA DE DONDE SE PONE LA INFORMACION DE LA IMAGEN QUE SE GENERARA -->
-                            <!-- en dado caso cambien el diseño de la firma aqui se debe cambiar la img -->
-                            <img src="img/FIRMA2.0.png" alt="" srcset="" class="correo-img correo-img-generada">
-
+                            <img src="img/FIRMA2.0.png" alt="" class="correo-img correo-img-generada">
                             <div class="container-info-empleado ">
-
-                                <h1 id="name" class="name">
-                                    NOMBRE
-                                    <b class="last-name">APELLIDO</b>
-                                </h1>
-
-                                <h5 id="text-information-area">
-                                    Area | <b>Comercialización En Movimiento S.A de C.V </b>
-                                </h5>
-
-                                <!-- TODO: Para informacion de empleado -->
-
+                                <h1 id="name" class="name">NOMBRE <b class="last-name">APELLIDO</b></h1>
+                                <h5 id="text-information-area">Área | <b>Comercialización En Movimiento S.A de C.V </b></h5>
                                 <ul class="pt-3">
-                                    <li>
-                                        <i class="fas fa-envelope email-box p-2 m-2 "></i>
-                                        <span id="text-information-email" class="">CORREO</span>
+                                    <li><i class="fas fa-envelope email-box p-2 m-2 "></i>
+                                        <span id="text-information-email">CORREO</span>
                                     </li>
-
-                                    <li><i class="fa-solid fa-location-pin email-box m-2 p-2  "></i>
-                                        <span id="text-information-sucursal" class="">SUCURSAL</span>
+                                    <li><i class="fa-solid fa-location-pin email-box m-2 p-2"></i>
+                                        <span id="text-information-sucursal">SUCURSAL</span>
                                     </li>
-
                                     <li><i class="fa-solid fa-phone email-box m-2 p-2 "></i>
-                                        <span id="text-information-telefono" class="">TELEFONO</span>
+                                        <span id="text-information-telefono">TELEFONO</span>
                                     </li>
-
-
-                                    <li>
-                                        <i class="fa-solid fa-tty email-box m-2 p-2"></i>
-                                        <span id="text-information-fijo" class="">TELEFONO FIJO O PBX</span>
+                                    <li><i class="fa-solid fa-tty email-box m-2 p-2"></i>
+                                        <span id="text-information-fijo">TELEFONO FIJO O PBX</span>
                                     </li>
-
                                 </ul>
-
                             </div>
                             <div class="Qr_Ubicacion-Generada">
                                 <img src="img/Ubicaciones_QR/QR_Ahuchapan.png" alt="" id="Qr_Ubicacion_img">
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
     </main>
 
-    <div class="container-fluid container-footer ">
+    <div class="container-fluid container-footer">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 border-top text-light">
             <p class="col-12 col-md-4 mb-0 text-light">Comercialización En Movimiento S.A de C.V - © 2024</p>
-
-            <a
-                class="text-light col-12 col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="img/SSlogo.png" alt="" srcset="" class="logo-footer" style="max-width: 100px;"> </a>
-
+            <a class="text-light col-12 col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="img/SSlogo.png" class="logo-footer" style="max-width: 100px;"> </a>
             <ul class="nav col-12 col-md-4 justify-content-end">
                 <li class="nav-item"><a class="nav-link px-2 text-light">Desarrollado por: <b>KLEM</b></a></li>
             </ul>
@@ -227,19 +173,55 @@
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
     <script src="GeneradorFirma.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/9ec536fb8b.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
 
-</body>
+    <script>
+        function generarInformacion() {
+            const nombre = document.getElementById('nombre').value.toUpperCase();
+            const apellido = document.getElementById('apellido').value.toUpperCase();
+            const correo = document.getElementById('correo').value + "@como.com.sv";
+            const sucursal = document.getElementById('sucursal').options[document.getElementById('sucursal').selectedIndex].text;
+            const telefono = document.getElementById('telefono').value;
+            const telefonoFijo = document.getElementById('telefono-fijo').value;
+            const area = document.getElementById('area').options[document.getElementById('area').selectedIndex].text;
 
+            document.getElementById('name').innerHTML = `${nombre} <b class="last-name">${apellido}</b>`;
+            document.getElementById('text-information-email').innerText = correo;
+            document.getElementById('text-information-sucursal').innerText = `Sucursal: ${sucursal}`;
+            document.getElementById('text-information-telefono').innerText = formatPhoneNumber(telefono);
+            document.getElementById('text-information-fijo').innerText = formatPhoneNumber(telefonoFijo);
+            document.getElementById('text-information-area').innerText = `${area} | Comercialización En Movimiento S.A de C.V `;
+
+            const qrMap = {
+                'Ahuachapán': 'QR_Ahuchapan.png',
+                'San Salvador': 'QR_San_Salvador.png',
+                'Santa Ana': 'QR_Santa_Ana.png',
+                'Sonsonate': 'QR_Sonsonate.png',
+                'La Libertad': 'QR_San_Salvador.png',
+                'Soyapango': 'QR_Soyapango.png',
+                'Apopa': 'QR_Apopa.png' // ✅ Nuevo QR
+            };
+
+            const qrUbicacion = document.getElementById('Qr_Ubicacion_img');
+            if (sucursal in qrMap) {
+                qrUbicacion.src = `img/Ubicaciones_QR/${qrMap[sucursal]}`;
+            }
+        }
+
+        function formatPhoneNumber(phoneNumber) {
+            const numericPhoneNumber = phoneNumber.replace(/\D/g, '');
+            if (numericPhoneNumber.length >= 4) {
+                return numericPhoneNumber.match(/.{1,4}/g).join('-');
+            }
+            return phoneNumber;
+        }
+    </script>
+</body>
 </html>
