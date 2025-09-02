@@ -48,6 +48,7 @@ function generarInformacion() {
         // ESTE ES EL MISMO PORQUE ES LA MISMA SUCURSAL
         'La Libertad': 'QR_San_Salvador.png',
         'Soyapango': 'QR_Soyapango.png',
+        'Apopa': 'QR_Apopa.png',
 
         // FALTA SOYAPANGO
     };
@@ -146,6 +147,8 @@ function generarImagenFirma() {
         'Sonsonate': 'QR_Sonsonate.png',
         // ESTE ES EL MISMO PORQUE ES LA MISMA SUCURSAL
         'La Libertad': 'QR_San_Salvador.png',
+        'Apopa': 'QR_Apopa.png',
+
         // FALTA SOYAPANGO
     };
 
